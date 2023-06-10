@@ -1,11 +1,13 @@
 import React from 'react'
 import { Tabs } from 'antd';
 import { items } from './helpers';
+import { useInputDataContext } from '../../context/InputDataContext'
 
 const TabsComponent: React.FC = () => {
+  const { setOutput } = useInputDataContext()
   return(
     <Tabs 
-      onChange={() => console.log('mudou')}
+      onChange={() => setOutput('')}
       type='card'
       items={items.map(item => (
         {

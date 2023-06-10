@@ -12,8 +12,8 @@ const debugCodeController = new DebugCodeController(chatGpt)
 const generateTestsController = new GenerateTestsController(chatGpt)
 const refactoringCodeController = new RefactoringCodeController(chatGpt)
 
-router.get('/debug-code', (req, res) => debugCodeController.execute(req, res))
-router.get('/generate-tests', (req, res) => generateTestsController.execute(req, res))
-router.get('/refactoring-code', (req, res) => refactoringCodeController.execute(req, res))
+router.post('/debug-code', (req, res) => debugCodeController.execute(req, res))
+router.post('/generate-tests', (req, res) => generateTestsController.execute(req, res))
+router.post('/refactoring-code', (req, res) => refactoringCodeController.execute(req, res))
 
-export { router };
+export { router }
