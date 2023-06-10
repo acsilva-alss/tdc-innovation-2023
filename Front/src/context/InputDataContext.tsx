@@ -10,7 +10,7 @@ type PropsInputDataContext = {
 const defaultValue = {
   output: '',
   setOutput: () => {},
-  getChatGptResponse: (url: string, message: string) => Promise.resolve('')
+  getChatGptResponse: () => Promise.resolve('')
 }
 
 const InputDataContext = createContext<PropsInputDataContext>(defaultValue)
