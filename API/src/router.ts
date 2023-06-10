@@ -15,5 +15,6 @@ const refactoringCodeController = new RefactoringCodeController(chatGpt)
 router.post('/debug-code', (req, res) => debugCodeController.execute(req, res))
 router.post('/generate-tests', (req, res) => generateTestsController.execute(req, res))
 router.post('/refactoring-code', (req, res) => refactoringCodeController.execute(req, res))
+router.get('/health', (req, res) => res.status(200).send({ status: 'UP'}))
 
 export { router }
