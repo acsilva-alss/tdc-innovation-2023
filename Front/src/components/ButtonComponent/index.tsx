@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from 'antd'
+import { useInputDataContext } from '../../context/InputDataContext'
 
 type Props = {
   name: string
@@ -7,33 +8,16 @@ type Props = {
 }
 
 const ButtonComponent: React.FC<Props> = ({ name, onClick }) => {
-  const [loadings, setLoadings] = React.useState<boolean[]>([])
-
-  const enterLoading = (index: number) => {
-    setLoadings((prevLoadings) => {
-      const newLoadings = [...prevLoadings]
-      newLoadings[index] = true
-      return newLoadings
-    })
-
-    setTimeout(() => {
-      setLoadings((prevLoadings) => {
-        const newLoadings = [...prevLoadings]
-        newLoadings[index] = false
-        return newLoadings
-      })
-    }, 6000)
-  }
+  const {loading} = useInputDataContext()
 
   const handleButoonClick = () => {
-    enterLoading(1)
     onClick()
   }
 
   return (
     <Button 
       type='primary' 
-      loading={loadings[1]}
+      loading={loading}
       onClick={handleButoonClick}
       style={{ marginTop: '1rem'}}
     >
